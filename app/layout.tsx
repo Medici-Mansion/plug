@@ -1,10 +1,8 @@
-"use client";
-
-import { useEffect } from "react";
 import "./globals.css";
 
-import { appWindow } from "@tauri-apps/api/window";
 import Link from "next/link";
+import WindowHeader from "@/components/window/window-header";
+import Setup from "@/components/window/setup";
 
 export default function RootLayout({
   children,
@@ -12,17 +10,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <header className="fixed top-0 h-20 w-screen" data-tauri-drag-region>
-          <nav data-tauri-drag-region>
-            <Link href="/">HOME</Link>
-            <Link href="/">HOME</Link>
-            <Link href="/">HOME</Link>
-            <Link href="/">HOME</Link>
-          </nav>
-        </header>
-        {children}
+    <html lang="en" className="bg-teal-300/10">
+      <body className="flex bg-transparent h-full min-h-[100dvh] p-[2px]">
+        <div className="hidden md:flex flex-col border-r-[1px]">
+          <WindowHeader className="pl-16">SIDEBAR SECTION</WindowHeader>
+        </div>
+        <main className="grow">
+          <WindowHeader className="pl-16 md:pl-0 w-full">
+            <Link draggable={false} className="" href="/">
+              HOME
+            </Link>
+            <Link draggable={false} className="" href="/">
+              HOME
+            </Link>
+            <Link draggable={false} className="" href="/">
+              HOME
+            </Link>
+            <Link draggable={false} className="" href="/">
+              HOME
+            </Link>
+          </WindowHeader>
+          {children}
+        </main>
+        <Setup />
       </body>
     </html>
   );

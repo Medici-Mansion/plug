@@ -18,7 +18,7 @@ fn main() {
             #[cfg(target_os = "macos")]
             apply_vibrancy(
                 &window,
-                NSVisualEffectMaterial::HudWindow,
+                NSVisualEffectMaterial::HeaderView,
                 None,
                 Some(10_f64),
             )
