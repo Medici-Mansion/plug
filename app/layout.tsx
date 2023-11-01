@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./globals.css";
 
 import { appWindow } from "@tauri-apps/api/window";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -13,23 +14,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <div className="titlebar"> */}
-        {/* <div className="titlebar-button" id="titlebar-minimize">
-            <img
-              src="https://api.iconify.design/mdi:window-minimize.svg"
-              alt="minimize"
-            />
-          </div>
-          <div className="titlebar-button" id="titlebar-maximize">
-            <img
-              src="https://api.iconify.design/mdi:window-maximize.svg"
-              alt="maximize"
-            />
-          </div>
-          <div className="titlebar-button" id="titlebar-close">
-            <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
-          </div> */}
-        {/* </div> */}
+        <header className="fixed top-0 h-20 w-screen" data-tauri-drag-region>
+          <nav data-tauri-drag-region>
+            <Link href="/">HOME</Link>
+            <Link href="/">HOME</Link>
+            <Link href="/">HOME</Link>
+            <Link href="/">HOME</Link>
+          </nav>
+        </header>
         {children}
       </body>
     </html>
